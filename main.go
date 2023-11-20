@@ -40,7 +40,7 @@ func setHealth(f *fiber.App) {
 }
 //
 func setApi(f *fiber.App) {
-	f.Get("/panic", func() error {
+	f.Get("/panic", func(c *fiber.Ctx) error {
 		panic("crash to test")
 	})
 }
