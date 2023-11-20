@@ -1,4 +1,3 @@
-
 name: Go build
 #
 on:
@@ -24,4 +23,3 @@ jobs:
     #
     - name: Build Go
       run: go build -v ./...
-    #
