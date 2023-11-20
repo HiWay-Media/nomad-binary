@@ -1,6 +1,6 @@
 module github.com/Hiway-Media/nomad-binary
 
-go 1.21.1
+go 1.18
 
 require (
 	github.com/HiWay-Media/hwm-go-utils v0.6.75

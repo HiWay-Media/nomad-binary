@@ -27,10 +27,17 @@ func main() {
 		AllowMethods: "GET, HEAD, OPTIONS, PUT, PATCH, POST, DELETE",
 	}))
 	//v1 := f.Group("/api/v1.0/")
-	f.Head("/", func(c *fiber.Ctx) error {
-		return c.SendStatus(http.StatusOK)
-	})
+	setHealth(f)
 	err = f.Listen("0.0.0.0:8000")
 	//
 	
+}
+//
+func setHealth(f *fiber.App) {
+	f.Get("/health", func(c *fiber.Ctx) error {
+		return c.SendStatus(http.StatusOK)
+	})
+	f.Head("/", func(c *fiber.Ctx) error {
+		return c.SendStatus(http.StatusOK)
+	})
 }
