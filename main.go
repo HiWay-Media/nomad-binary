@@ -22,7 +22,8 @@ func main() {
 		AllowHeaders: "Content-Type, Authorization",
 		AllowMethods: "GET, HEAD, OPTIONS, PUT, PATCH, POST, DELETE",
 	}))
-	//v1 := f.Group("/api/v1.0/")
+	v1 := f.Group("/api/v1.0/")
+	setApi(f)
 	setHealth(f)
 	err := f.Listen("0.0.0.0:8000")
 	zapLogger.Error(err.Error())
@@ -37,3 +38,10 @@ func setHealth(f *fiber.App) {
 		return c.SendStatus(http.StatusOK)
 	})
 }
+//
+func setApi(f *fiber.App) {
+	f.Get("/panic", func() error {
+		panic("crash to test")
+	})
+}
+//
