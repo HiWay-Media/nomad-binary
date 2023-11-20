@@ -2,11 +2,11 @@
 This is a test project for experimenting with the Nomad raw_exec driver. It includes a sample binary that can be used as a Nomad task to execute arbitrary commands.
 
 ## Getting Started
-### Prerequisites
+### Prerequisites
 - Nomad installed on your system.
 - A running Nomad server and client.
 
-### Nomad Job Configuration
+### Nomad Job Configuration
 The nomad-job.hcl file defines a Nomad job using the raw_exec driver. It specifies the sample binary as a task to be executed.
 
 ```hcl
