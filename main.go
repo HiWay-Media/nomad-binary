@@ -1,6 +1,7 @@
 package main
 
 import (
+	"net/http"
 
 	"github.com/HiWay-Media/hwm-go-utils/log"
 
@@ -8,15 +9,10 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/gofiber/fiber/v2/middleware/recover"
-
 )
 
 func main() {
 	zapLogger := log.GetLogger("debug")
-	if err != nil {
-		fmt.Printf("error initializing the logger %v\n", err)
-	}
-	sugaredLogger := zapLogger.Sugar()
 	//
 	f := fiber.New()
 	f.Use(logger.New())
@@ -28,11 +24,11 @@ func main() {
 	}))
 	//v1 := f.Group("/api/v1.0/")
 	setHealth(f)
-	err = f.Listen("0.0.0.0:8000")
+	err := f.Listen("0.0.0.0:8000")
 	zapLogger.Error(err.Error())
 	//
 }
-//
+
 func setHealth(f *fiber.App) {
 	f.Get("/health", func(c *fiber.Ctx) error {
 		return c.SendStatus(http.StatusOK)
