@@ -29,8 +29,8 @@ func main() {
 	//v1 := f.Group("/api/v1.0/")
 	setHealth(f)
 	err = f.Listen("0.0.0.0:8000")
+	zapLogger.Error(err.Error())
 	//
-	
 }
 //
 func setHealth(f *fiber.App) {
