@@ -44,6 +44,7 @@ func setApi(f *fiber.App, logger *zap.SugaredLogger) {
 	f.Get("/panic", func(c *fiber.Ctx) error {
 		//panic("crash to test")
 		logger.Fatal("crash to test nomad binary")
+		return nil
 	})
 }
 //
