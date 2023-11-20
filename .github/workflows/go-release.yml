@@ -32,7 +32,7 @@ jobs:
         GITHUB_TOKEN: ${{ github.token }}
       with:
         name: upload-nomad-binary
-        path: /tmp/bin/nomad-binary.tar
+        path: /tmp/bin/nomad-binary.tar.gz
     #
     - name: Release nomad-binary
       uses: softprops/action-gh-release@v1
@@ -41,4 +41,4 @@ jobs:
         body: "# Release ${{github.ref}} \n"
         files: |
           LICENSE
-          /tmp/bin/nomad-binary.tar
+          /tmp/bin/nomad-binary.tar.gz
