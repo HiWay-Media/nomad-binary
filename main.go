@@ -23,6 +23,7 @@ func main() {
 		AllowMethods: "GET, HEAD, OPTIONS, PUT, PATCH, POST, DELETE",
 	}))
 	v1 := f.Group("/api/v1.0/")
+	setApi(v1)
 	setApi(f)
 	setHealth(f)
 	err := f.Listen("0.0.0.0:8000")
