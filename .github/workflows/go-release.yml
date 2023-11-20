@@ -1,5 +1,8 @@
 name: Go release
 #
+env:
+  ACTIONS_STEP_DEBUG: true
+#
 on:
   release:
     types: [published]
@@ -21,7 +24,7 @@ jobs:
         cache: true
     #
     - name: Build nomad binary
-      id: buildnomadbinary
+      id: build-nomad-binary
       shell: bash
       run: |
           sudo sh build.sh 
