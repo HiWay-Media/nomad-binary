@@ -3,6 +3,7 @@ package main
 import (
 	"net/http"
 
+	"go.uber.org/zap"
 	"github.com/HiWay-Media/hwm-go-utils/log"
 
 	"github.com/gofiber/fiber/v2"
