@@ -4,5 +4,5 @@ CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags="-s -w" -a -o nomad-bina
 mkdir -p /tmp/bin
 pwd
 ls -al
-tar -czvf /tmp/bin/nomad-binary.tar --transform='s|.*/||'  /tmp/bin/nomad-binary 
+tar -czvf /tmp/bin/nomad-binary.tar --transform='s|.*/||'  ./nomad-binary 
 ls -l /tmp/bin
