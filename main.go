@@ -24,7 +24,7 @@ func main() {
 	}))
 	//v1 := f.Group("/api/v1.0/")
 	//setApi(v1)
-	setApi(f)
+	setApi(f, zapLogger)
 	setHealth(f)
 	err := f.Listen("0.0.0.0:8000")
 	zapLogger.Error(err.Error())
@@ -40,9 +40,10 @@ func setHealth(f *fiber.App) {
 	})
 }
 //
-func setApi(f *fiber.App) {
+func setApi(f *fiber.App, logger *zap.SugaredLogger) {
 	f.Get("/panic", func(c *fiber.Ctx) error {
-		panic("crash to test")
+		//panic("crash to test")
+		logger.Fatal("crash to test nomad binary")
 	})
 }
 //
